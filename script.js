@@ -1,6 +1,9 @@
 let first_n;
 let second_n;
 let operator;
+const numbers = document.getElementsByTagName("button");
+const clearing = document.getElementById("clear");
+let display = document.querySelector("#display");
 
 function add(x, y){
     return x + y;
@@ -18,45 +21,55 @@ function divide(x, y){
     return x / y;
 }
 
-function help(){
-    console.log("1 - add; 2 - substract; 3 - multiply, 4 - divide")
-}
-
 function calculate(first, second, op){
-    help();
     if (operator == "1"){
         return(add(first, second));
     } else if (op == "2"){
-        console.log(substract(first, second));
+        return(substract(first, second));
     } else if (op == "3"){
-        console.log(multiply(first, second));
+        return(multiply(first, second));
     } else if (op == "4"){
-        console.log(divide(first, second));
+        return(divide(first, second));
     }
 }
 
-
-
-const numbers = document.getElementsByTagName("button");
-
 function populate(e){
-    let display = document.querySelector("#display");
     display.textContent += e.target.textContent;
     if (e.target.textContent === "+"){
         operator = "1";
-        
-        console.log(first_n)
-        console.log(operator)
-        
+    } else if (e.target.textContent === "-"){
+        operator = "2";
+    } else if (e.target.textContent === "*"){
+        operator = "3";
+    } else if (e.target.textContent === "/"){
+        operator = "4";
     }
-    [first_n, second_n] = display.textContent.split("+");
-    console.log(first_n)
-    console.log(second_n)
+   
+    [first_n, second_n] = display.textContent.split(/[*+-/]/);
     if (e.target.textContent === "="){
         display.textContent = calculate(parseInt(first_n), parseInt(second_n), operator)
+    /*let contentarray = display.textContent.split("");
+    let operators = contentarray.filter(operator => operator === "+")
+    if (e.target.textContent === "="){
+        for (op of operators){
+            display.textContent = calculate(parseInt(first_n), parseInt(second_n), op)
+            first_n = display.textContent
+            //change second_n so it would be the next number not as in the first iteration
+
+            console.log(first_n);
+        }
     }
-  }   
+    */
+    }
+}   
+
+function clear(){
+    display.textContent = "";
+}
+
+clearing.addEventListener("click", clear);
 
 for (number of numbers){
 number.addEventListener("click", populate);
 } 
+
