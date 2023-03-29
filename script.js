@@ -49,8 +49,9 @@ function populate(e){
         }
     }
 }
-  
+
 function clear(){
+    clearing.removeEventListener("click", populate);
     display.textContent = "";
 }
 
@@ -59,4 +60,5 @@ clearing.addEventListener("click", clear);
 for (number of numbers){
 number.addEventListener("click", populate);
 } 
+
 

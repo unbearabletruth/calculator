@@ -9,9 +9,13 @@ body {
     flex-direction: column;
     height: 520px;
     width: 320px;
-    background-color: #778899;
+    background-color: #e6e6ff;
     flex-wrap: wrap;
     padding: 10px;
+    border: solid;
+    border-radius: 10px;
+    border-color: #483D8B;
+    box-shadow: 10px 10px 25px #aaaaaa;
 }
 
 .buttons {
@@ -32,17 +36,18 @@ body {
 
 .num-buttons {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
 }
 
 button{
     display: flex;
+    flex-grow: 1;
     justify-content: center;
     align-items: center;
     width: 80px;
     height: 60px;
-    background-color: #1E90FF;
+    background-color: #483D8B;
     border: 0px;
     margin: 2px;
     font-size: 30px;
@@ -51,10 +56,13 @@ button{
 
 #display {
     display: flex;
-    flex: 0 0 50px;
+    border: solid;
+    border-color: #483D8B;
+    border-radius: 0px;
+    flex: 1 0 auto;
     justify-content: end;
     align-items: end;
-    background-color: azure;
+    background-color: white;
     padding: 5px;
-    font-size: 40px;
+    font-size: 60px;
 }
